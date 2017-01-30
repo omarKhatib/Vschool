@@ -1,0 +1,52 @@
+body{
+    background-color: #8fa6bb;
+    font-family: 'Dosis', sans-serif;
+    
+}
+
+div{
+    margin-bottom: 20px;
+    
+    
+}
+#ww{
+    margin-top: 90px;;
+    
+    border-radius: 20px;
+    display: inline-block;
+    width: auto;
+    padding:20px;
+    background-color: #dbe7ef;
+    
+    
+}
+.w{
+    background-color: #c9d6de;
+    display: inline-block;
+    width:auto;
+    padding:20px;
+    margin: 25px;
+    border-radius: 30px;
+    
+    
+    
+}
+input{
+   border: 2px solid lightblue;
+    border-radius: 10px;
+    height: 30px;
+    
+}
+button{
+       width: 37px;
+    height: 27px;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    
+    
+}
+#result{
+    
+    
+    
+}

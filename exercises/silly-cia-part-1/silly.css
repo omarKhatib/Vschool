@@ -1,0 +1,30 @@
+#mainH{
+    color:darkgreen;
+    
+}
+.headlines{
+    
+     font-family:Georgia;
+    text-align:center;
+}
+P{
+    line-height: 25px;
+    
+}
+#y{
+    
+    text-transform:uppercase;
+}
+a{
+    text-decoration: none;
+    
+}
+
+a:hover{
+    text-decoration:underline;
+    
+}
+img{
+    float:left
+}
+

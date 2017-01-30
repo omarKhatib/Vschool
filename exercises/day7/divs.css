@@ -1,0 +1,50 @@
+#wrapper{
+
+width:97%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#main{
+    background-color:#e6a4ba;
+    width: 96.5%;
+    height: 150px;
+    margin-bottom: 4px;
+    
+
+}
+.subD{
+    display: inline-block;
+
+    background-color:e43e75;
+    width:24%;
+    height:150px;
+        margin: -1px;
+
+}
+.subDD{
+    
+    display: inline-block;
+    background-color: lightblue;
+    width: 48%;
+    height:150px;
+}
+#s{
+  display: inline-block;
+    background-color:darkcyan;
+    width: 72%;
+    height:150px;  
+    
+}
+
+#ss{
+  display: inline-block;
+    background-color:darkorange;
+    width: 24%;
+    height:150px;
+    margin-left: -1;
+    
+}
+
+

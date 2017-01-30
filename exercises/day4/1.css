@@ -1,0 +1,16 @@
+#header{
+    text-decoration: underline;
+    text-align: center;
+}
+.pr{
+    
+    display:inline-block;
+    width: 200px;
+}
+#i{
+    
+    width:300px;
+    height: 300px;
+    display: block;
+    
+}

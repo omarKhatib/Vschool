@@ -1,0 +1,56 @@
+.body{
+    font-family:
+    
+    
+}
+
+.yellow{
+    background-color: yellow;
+    height: 150px;
+    color:red;
+    font-size: 20px;
+    
+}
+.luigi{
+    padding-left: 20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    
+    
+    
+}
+.red{
+  background-color: red;
+    height: 300px;  
+    
+    
+}
+
+.im{
+    margin: 0 auto;
+    display: block;
+    
+    
+}
+
+.imf{
+    
+    width:60px;
+    height: 52px;
+    padding:5px;
+    
+}
+
+.txt{
+    color:red;
+    text-align: center;
+    font-size: 20px;
+    
+    
+}
+.yellowf{
+  background-color: yellow;
+    height: 50px;
+    
+    
+}
