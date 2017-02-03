@@ -1,17 +1,12 @@
 
 body{
     background-image: url("b.jpg");
-    
-    
 }
 #w{
     margin-top:200px;
    margin-left: auto;
     margin-right: auto; 
-    width: 100%;
-    
-    
-    
+    width: 100%;  
 }
 
 table{
@@ -51,6 +46,3 @@ img{
     color:#943636;
     
 }
-
-
-
