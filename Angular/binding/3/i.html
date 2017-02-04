@@ -1,0 +1,83 @@
+<hmtl>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel='stylesheet' href='s.css'>
+<!-- Latest compiled and minified JavaScript -->
+
+    </head>
+
+<body>
+<div ng-app="app" ng-controller="ctr">
+<div class='container'>
+<div class='row'>
+   <div class='col-md-6'>
+   
+  
+  <input type="text" class="form-control"  placeholder='First name' ng-model='fName'>
+</div>
+   <div class='col-md-6'>
+   
+  
+  <input type="text" class="form-control"  placeholder='Last Name' ng-model='lName'>
+</div>
+
+   
+    </div>
+    
+    <div class='row'>
+   <div class='col-md-6'>
+   
+  
+  <input type="text" class="form-control"  placeholder='email' ng-model='email'>
+</div>
+   <div class='col-md-6'>
+   
+  
+  <input type="text" class="form-control"  placeholder='place of birth' ng-model='pob'>
+</div>
+
+   
+    </div>
+    
+    <div class='row'>
+   <div class='col-md-6'>
+   
+  
+  <input type="number" class="form-control"  placeholder='phone' ng-model='phone'>
+</div>
+   <div class='col-md-6'>
+   
+  
+  <input type="text" class="form-control"  placeholder='favorate food' ng-model='ff'>
+</div>
+
+   
+    </div>
+    
+    <div class='row'>
+    <textarea class="form-control" rows="5" placeholder='tell us about your self' ng-model='about'></textarea>
+    </div>
+    
+    <div class='row'>
+       <center>
+        <button ng-click="a()" class='btn btn-primary'>submit</button>
+        </center>
+    </div>
+    <hr>
+    </div>
+
+
+    </div>    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src='i.js'></script>
+    </body>
+    
+</html>

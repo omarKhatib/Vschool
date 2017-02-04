@@ -1,0 +1,28 @@
+<html>
+<head>
+
+    </head>
+
+<body>
+<div ng-app="app" ng-controller="ctr">
+<div ng-repeat = "x in player.kills">
+    <p>{{ "handle :" +x.handle}}</p>
+    <p>{{"Rank : " + x.rank}}</p>
+    <div ng-repeat = "y in x.clan">
+    
+    <li>
+    
+    {{y}}
+        </li>
+    
+    </div>
+
+
+    
+    </div>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src='i.js'></script>
+    </body>
+    
+</html>
