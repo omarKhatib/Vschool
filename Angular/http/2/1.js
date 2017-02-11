@@ -28,6 +28,7 @@ a.service("toDoS", function ($http) {
 
 a.controller('ctrl', function ($scope, toDoS) {
     $scope.loadData = function () {
+        alert('loading data');
         toDoS.getData().then(function (response) {
                 $scope.out = response.data; }, function (response) {
                 alert(response.status);
