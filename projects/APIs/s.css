@@ -1,0 +1,26 @@
+body{
+    background-color: #F4F4F4;
+}
+
+.form{
+    width:30%;
+    margin:100px auto;
+    
+}
+.form h2{
+    color: #888;
+    
+}
+.form input{
+    margin-bottom:10px;
+}
+
+.form .form-control{
+    background-color: #E5E5E5;
+}
+.form .btn{
+    background-color: #008dde;
+    margin-bottom:10px;
+    
+}
+}
