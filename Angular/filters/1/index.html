@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app='app' ng-controller='ctrl'>
+      
+      <input type='text' ng-model='searchKey'>
+      <div>
+      <ul ng-repeat='item in items | mySearch:searchKey'>
+          <li>{{item.name }}<br>{{item.age}}</li>
+          </ul>
+    </div>
+       
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script src='js.js'></script>
+</body>
+</html>
