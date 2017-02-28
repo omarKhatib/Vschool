@@ -1,0 +1,2 @@
+npm init -y  //yes to all
+npm install -S <package name>  //Save
