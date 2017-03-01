@@ -1,6 +1,7 @@
 var express =require('express');
 var app = express();
 var bodyParser = require('body-parser'); //to post in json form  
+var uuid = require('uuid'); //generate random id
 var data = require('./students.js');
 
 var post = 8080;
@@ -13,7 +14,12 @@ app.get('/',function(req,res){ //default : root dir
 });
 
 app.post('/',function(req,res){
-    data.push(req.body);
+    data.push({                        //req.body : the entire posted json object
+        id: uuid.v4(),
+        name: req.body.name,
+        age: req.body.age
+        
+    });
     res.status(200).send({'message':'success'});
 });
 
