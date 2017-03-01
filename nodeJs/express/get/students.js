@@ -1,5 +1,7 @@
+var uuid = require('uuid');
 var students = [
     {
+        id:uuid.v4(),
         name:'omar',
         age:22
         
@@ -8,12 +10,14 @@ var students = [
     
     
     {
+        id:uuid.v4(),
         name:'jacob',
         age:19
         
         
     },
     {
+        id:uuid.v4(),
         name:'ali',
         age:20
         
@@ -21,6 +25,7 @@ var students = [
     },
     
     {
+        id:uuid.v4(),
         name:'ahmad',
         age:30
         
