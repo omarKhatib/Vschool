@@ -14,6 +14,11 @@ app.get('/',function(req,res){ //default : root dir
 });
 
 app.post('/',function(req,res){
+    if(req.body.name ==undefined || req.body.name ==''){      //name validation
+        res.status(400).send({'message':'you have to insert name'});
+    }
+
+    else{
     data.push({                        //req.body : the entire posted json object
         id: uuid.v4(),
         name: req.body.name,
@@ -21,6 +26,8 @@ app.post('/',function(req,res){
         
     });
     res.status(200).send({'message':'success'});
+    }
+    
 });
 
 var server = app.listen(post,function(){
