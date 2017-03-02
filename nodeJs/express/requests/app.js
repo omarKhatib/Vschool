@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser'); //to post in json form  
 var uuid = require('uuid'); //generate random id
 var data = require('./students.js');
+var validation = require('./validation.js');
 
 var post = 8080;
 app.use(bodyParser.urlencoded({extended: false}));
@@ -14,8 +15,15 @@ app.get('/',function(req,res){                //default : root dir
 });
 
 app.post('/',function(req,res){
-    if(req.body.name ==undefined || req.body.name ==''){      //name validation , If the user enters extra enteties : will neglect it automatically
-        res.status(400).send({'message':'you have to insert name'});
+    var postedData = {
+        id: uuid.v4(),
+        name: req.body.name,
+        age: req.body.age
+    }
+    var isValidate = validation(postedData);
+    
+    if(isValidate.message == 'F'){      //name validation , If the user enters extra enteties : will neglect it automatically
+        res.status(400).send({'message':'you have to insert '+isValidate.missedData});
     }
 
     else{
