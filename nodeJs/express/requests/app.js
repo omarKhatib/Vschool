@@ -10,8 +10,26 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
-app.get('/',function(req,res){                //default : root dir
-    res.status(200).send(data);
+
+
+
+app.get('/',function(req,res){                //default : root dir ,,,, get all data
+
+            res.status(200).send(data);
+
+    
+});
+
+
+app.get('/:id',function(req,res){                // parameters is not optional
+    var id = req.params.id;
+  for(i in data){
+       if(data[i].id == id){
+            res.status(200).send(data[i]);
+  }
+ }
+  res.status(400).send({message: 'not found id!'});
+    
 });
 
 app.post('/',function(req,res){
