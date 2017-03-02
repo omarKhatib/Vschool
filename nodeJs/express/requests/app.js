@@ -32,21 +32,19 @@ app.post('/',function(req,res){
 
 
 
-app.delete('/:id', function(req, res){
+app.delete('/:id', function(req, res){     //not optional parameter
     var id = req.params.id;
-    var found = false;
     for(var i = 0; i<data.length ; i++){
         if(data[i].id == id){
             data.splice(i, 1);
             res.status(200).send({'message': 'deleted!'});
-            found =true
+
         }
   
     }
-    if(found == false) {
-         res.status(400).send({'message': 'id not found!'});
+    res.status(400).send({'message': 'id not found!'});
         
-    }
+
      
     
     
