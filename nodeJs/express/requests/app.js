@@ -77,6 +77,29 @@ app.delete('/:id', function(req, res){     //not optional parameter
 });
 
 
+app.put("/:id", function(req, res) {
+  for(var i = 0; i < data.length; i++) {
+    if(req.params.id == data[i].id) {
+      var puttedData = {
+        id: uuid.v4(),
+        name: req.body.name,
+        age: req.body.age,
+      };
+      var isValidate = validation(puttedData);
+       if(isValidate.message == 'F'){  
+        res.status(400).send({'message':'you have to insert '+isValidate.missedData});
+    }
+                             
+    else {
+        data[i] = puttedData;
+        res.status(200).send({"message": "updated"});
+      }
+    }
+  }
+  res.status(404).send({"message": "No such item with id of " + req.params.id});
+});
+
+
 
 
 
