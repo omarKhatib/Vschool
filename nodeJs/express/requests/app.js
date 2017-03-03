@@ -13,12 +13,12 @@ app.use(bodyParser.json());
 
 
 
-app.get('/',function(req,res){                //default : root dir ,,,, get all data
-
-            res.status(200).send(data);
-
-    
-});
+//app.get('/',function(req,res){                //default : root dir ,,,, get all data
+//
+//            res.status(200).send(data);
+//
+//    
+//});
 
 
 app.get('/:id',function(req,res){                // parameters is not optional
@@ -31,6 +31,35 @@ app.get('/:id',function(req,res){                // parameters is not optional
   res.status(400).send({message: 'not found id!'});
     
 });
+
+
+app.get('/',function(req, res){
+    if(Object.keys(req.query).length === 0){    //if there is no query params
+              res.status(200).send(data);
+        console.log('no params')
+        
+    }
+    
+    else{
+         var filterData=[];
+    for(key in req.query){
+        for(var i=0 ;i<data.length;i++){
+           if(data[i][key]==req.query[key]){
+             filterData.push(data[i]);  
+              
+           }
+        }
+        
+    }
+        
+        res.status(200).send(filterData);
+        
+        
+    }
+    
+    
+})
+
 
 app.post('/',function(req,res){
     var postedData = {
