@@ -5,20 +5,9 @@ var uuid = require('uuid'); //generate random id
 var data = require('./students.js');
 var validation = require('./validation.js');
 
-var post = 8080;
+var port = 8080;
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
-
-
-
-
-//app.get('/',function(req,res){                //default : root dir ,,,, get all data
-//
-//            res.status(200).send(data);
-//
-//    
-//});
 
 
 app.get('/:id',function(req,res){                // parameters is not optional
@@ -30,36 +19,11 @@ app.get('/:id',function(req,res){                // parameters is not optional
  }
   res.status(400).send({message: 'not found id!'});
     
-});
+});   //get with non optional params (id)   localhost/{{id}}
 
 
-//app.get('/',function(req, res){
-//    if(Object.keys(req.query).length === 0){    //if there is no query params
-//              res.status(200).send(data);
-//        
-//    }
-//    
-//    else{
-//         var filterData=[];
-//        for(var i=0 ;i<data.length;i++){
-//            var counter = 0;
-//    for(key in req.query){
-//        
-//           if(data[i][key]==req.query[key]){
-//             filterData.push(data[i]);  
-//              
-//           }
-//        }
-//        
-//    }
-//        
-//        res.status(200).send(filterData);
-//        
-//        
-//    }
-//    
-//    
-//})
+
+
 
 
 app.get("/", function (req, res) {
@@ -83,7 +47,7 @@ app.get("/", function (req, res) {
         res.status(200).send(filterData);
     }
 
-});
+}); // get with optional query params 
 
 
 app.post('/',function(req,res){
@@ -108,7 +72,7 @@ app.post('/',function(req,res){
     res.status(200).send({'message':'success'});
     }
     
-});
+}); //post with validation
 
 
 
@@ -128,7 +92,7 @@ app.delete('/:id', function(req, res){     //not optional parameter
      
     
     
-});
+}); //delete per id
 
 
 app.put("/:id", function (req, res) {
@@ -140,31 +104,10 @@ app.put("/:id", function (req, res) {
             }
             res.status(200).send(data[i]);
         }}
-});
+}); //update per id
 
 
-var server = app.listen(post,function(){
-    console.log("We have started our server on port : "+post);
-});
+var server = app.listen(port,function(){
+    console.log("We have started our server on port : "+port);
+}); // create server listener
 
-//app.put("/:id", function(req, res) {
-//  for(var i = 0; i < data.length; i++) {
-//    if(req.params.id == data[i].id) {
-//      var puttedData = {
-//        id: uuid.v4(),
-//        name: req.body.name,
-//        age: req.body.age,
-//      };
-//      var isValidate = validation(puttedData);
-//       if(isValidate.message == 'F'){  
-//        res.status(400).send({'message':'you have to insert '+isValidate.missedData});
-//    }
-//                             
-//    else {
-//        data[i] = puttedData;
-//        res.status(200).send({"message": "updated"});
-//      }
-//    }
-//  }
-//  res.status(404).send({"message": "No such item with id of " + req.params.id});
-//});
