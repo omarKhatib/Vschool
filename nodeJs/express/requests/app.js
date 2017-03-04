@@ -36,7 +36,6 @@ app.get('/:id',function(req,res){                // parameters is not optional
 app.get('/',function(req, res){
     if(Object.keys(req.query).length === 0){    //if there is no query params
               res.status(200).send(data);
-        console.log('no params')
         
     }
     
@@ -106,33 +105,42 @@ app.delete('/:id', function(req, res){     //not optional parameter
 });
 
 
-app.put("/:id", function(req, res) {
-  for(var i = 0; i < data.length; i++) {
-    if(req.params.id == data[i].id) {
-      var puttedData = {
-        id: uuid.v4(),
-        name: req.body.name,
-        age: req.body.age,
-      };
-      var isValidate = validation(puttedData);
-       if(isValidate.message == 'F'){  
-        res.status(400).send({'message':'you have to insert '+isValidate.missedData});
-    }
-                             
-    else {
-        data[i] = puttedData;
-        res.status(200).send({"message": "updated"});
-      }
-    }
-  }
-  res.status(404).send({"message": "No such item with id of " + req.params.id});
+app.put("/:id", function (req, res) {
+    var id = req.params.id;
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].id == id) {
+        for (key in req.query) {  
+            data[i][key]=req.query[key];
+            }
+            res.status(200).send(data[i]);
+        }}
 });
-
-
-
-
 
 
 var server = app.listen(post,function(){
     console.log("We have started our server on port : "+post);
 });
+
+//app.put("/:id", function(req, res) {
+//  for(var i = 0; i < data.length; i++) {
+//    if(req.params.id == data[i].id) {
+//      var puttedData = {
+//        id: uuid.v4(),
+//        name: req.body.name,
+//        age: req.body.age,
+//      };
+//      var isValidate = validation(puttedData);
+//       if(isValidate.message == 'F'){  
+//        res.status(400).send({'message':'you have to insert '+isValidate.missedData});
+//    }
+//                             
+//    else {
+//        data[i] = puttedData;
+//        res.status(200).send({"message": "updated"});
+//      }
+//    }
+//  }
+//  res.status(404).send({"message": "No such item with id of " + req.params.id});
+//});
+
+
