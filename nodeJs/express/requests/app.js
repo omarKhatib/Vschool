@@ -33,31 +33,57 @@ app.get('/:id',function(req,res){                // parameters is not optional
 });
 
 
-app.get('/',function(req, res){
-    if(Object.keys(req.query).length === 0){    //if there is no query params
-              res.status(200).send(data);
-        
-    }
-    
-    else{
-         var filterData=[];
-    for(key in req.query){
-        for(var i=0 ;i<data.length;i++){
-           if(data[i][key]==req.query[key]){
-             filterData.push(data[i]);  
-              
-           }
+//app.get('/',function(req, res){
+//    if(Object.keys(req.query).length === 0){    //if there is no query params
+//              res.status(200).send(data);
+//        
+//    }
+//    
+//    else{
+//         var filterData=[];
+//        for(var i=0 ;i<data.length;i++){
+//            var counter = 0;
+//    for(key in req.query){
+//        
+//           if(data[i][key]==req.query[key]){
+//             filterData.push(data[i]);  
+//              
+//           }
+//        }
+//        
+//    }
+//        
+//        res.status(200).send(filterData);
+//        
+//        
+//    }
+//    
+//    
+//})
+
+
+app.get("/", function (req, res) {
+    if (Object.keys(req.query).length === 0) {
+        res.status(200).send(data);
+    } else {
+        var filterData = [];
+        for (var i = 0; i < data.length; i++) {
+            var counter=0;
+            for (key in req.query) {
+                if (req.query[key] == data[i][key]) {
+                    counter++;
+                  
+                }
+            }
+            if (counter==Object.keys(req.query).length){
+                 filterData.push(data[i]);
+                counter=0;
+            }
         }
-        
-    }
-        
         res.status(200).send(filterData);
-        
-        
     }
-    
-    
-})
+
+});
 
 
 app.post('/',function(req,res){
@@ -142,5 +168,3 @@ var server = app.listen(post,function(){
 //  }
 //  res.status(404).send({"message": "No such item with id of " + req.params.id});
 //});
-
-
