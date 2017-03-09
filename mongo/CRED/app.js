@@ -1,4 +1,4 @@
-var mongodb = require('mongodb');
+/*var mongodb = require('mongodb');          mongo without mongoose
 
 //setup
 
@@ -22,4 +22,4 @@ client.connect(URL, function(err, db){
         
     }
     
-});
+});*/
