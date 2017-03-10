@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app="app" ng-controller="ctrl" ng-init='get()' >
+
+    <span>{{message.message}}</span>
+    <input type='text' ng-model='name' placeholder='name'><br><br>
+    <input type='number' ng-model='age' placeholder='age'>
+    <button ng-click='add()'>add</button>
+ <ul class="list-group" ng-repeat = 'student in students.data'>
+  <li class="list-group-item">{{student.name}}</li>
+   
+     <button ng-click='remove(student._id)'>delete</button>
+    </ul>
+
+ 
+   
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js" ></script>
+    <script src="../js/app.js" ></script>
+   
+</body>
+</html>
