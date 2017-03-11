@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var ejs = require('ejs');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/');
+mongoose.connect('mongodb://localhost/');    // localhost/dbName
 var path = require("path");
 var apiRouter=require("./api.js");
 var fileRouter = require('./files.js');
@@ -30,7 +30,7 @@ app.engine("html", ejs.renderFile);
 app.set("view engine", "ejs");
 
 
-app.use(apiRouter);
+app.use('/students',apiRouter);
 app.use(fileRouter);
 
 

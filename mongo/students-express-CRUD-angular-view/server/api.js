@@ -11,7 +11,7 @@ apiRouter.use(bodyParser.urlencoded({
 apiRouter.use(bodyParser.json());
 
 
-apiRouter.get("/students", function (req, res) {
+apiRouter.get("/", function (req, res) {
  data.find({}, function(err, data){
      if(err){
          res.status(500).send({message:'internal server error'});
@@ -31,7 +31,7 @@ apiRouter.get("/students", function (req, res) {
 
 });
 
-apiRouter.post("/students",function(req, res){
+apiRouter.post("/",function(req, res){
     var newData = new data(req.body);
     newData.save(function(err, nd){
         if(err){
@@ -48,7 +48,7 @@ apiRouter.post("/students",function(req, res){
     
 });
 
-apiRouter.delete("/students/:id", function(req, res){
+apiRouter.delete("/:id", function(req, res){
    // console.log(req.params.id);
     data.findOne({_id:req.params.id}, function(err, data){
         if(err){
@@ -84,7 +84,7 @@ apiRouter.delete("/students/:id", function(req, res){
 
 
 
-apiRouter.put("/students/:id", function(req, res){
+apiRouter.put("/:id", function(req, res){
    // console.log(req.params.id);
     data.findOne({_id:req.params.id}, function(err, data){
         if(err){
