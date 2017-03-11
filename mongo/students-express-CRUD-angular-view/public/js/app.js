@@ -6,14 +6,14 @@ ang.service("Service", function ($http) {
     }
     
     this.setData = function (data) { 
-        return $http.post("http://localhost:8080/students/")
+        return $http.post("http://localhost:8080/students/",data)
     }
      this.deleteData = function (id) { 
         return $http.delete("http://localhost:8080/students/"+id)
     }
      
-      this.putData = function (data,id) { 
-        return $http.put("http://localhost:8080/")
+      this.putData = function (id,data) { 
+        return $http.put("http://localhost:8080/students/"+id+'/',data);
     }
 
 
@@ -32,7 +32,6 @@ ang.controller("ctrl", function ($scope, Service) {
     }
     
     $scope.remove = function(id){
-        alert(id);
         Service.deleteData(id).then(function(response){
             $scope.message = response.data;
             $scope.get();
@@ -42,6 +41,39 @@ ang.controller("ctrl", function ($scope, Service) {
         
     }
     
+    
+    $scope.add = function(){
+        var data = {name: $scope.name, age:$scope.age};
+        console.log(data);
+        Service.setData(data).then(function(response){
+            $scope.message = response.data;
+            $scope.get();
+            
+            
+        });
+        
+        
+        
+        
+        
+    }
+    
+    $scope.update = function(id){
+        var data = {name: $scope.name, age:$scope.age};
+        Service.putData(id, data).then(function(response){
+            $scope.message = 'updated!';
+            $scope.get();
+            
+            
+            
+        })
+        
+        
+        
+        
+        
+        
+    }
 
 
 });
