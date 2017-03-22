@@ -17,6 +17,7 @@ app.directive('name', function(){
             console.log('loaded the directive');
             elem.bind('click',function(){
                 elem.css('color',scope.color);
+                
         
     })
         
