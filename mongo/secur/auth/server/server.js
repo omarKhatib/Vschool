@@ -2,7 +2,8 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/');
+var config = require("./config");  
+mongoose.connect(config.database);
 
 var apiRouter=require("./api.js");
 var authRouter = require('./auth.js');

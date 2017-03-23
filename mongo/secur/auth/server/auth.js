@@ -2,7 +2,9 @@ var express = require('express');
 var authRouter = express.Router();
 var mongoose = require('mongoose');
 var bodyParser = require('body-Parser');
+var jwt = require("jsonwebtoken"); 
 var User = require('./users.js');
+var config = require('./config.js')
 
 
 authRouter.post("/signup",function(req,res){
@@ -25,15 +27,17 @@ authRouter.post("/signup",function(req,res){
 });
 
 authRouter.post("/signin",function(req,res){
-     User.findOne({username:req.body.username},function(err,data){
+     User.findOne({username:req.body.username},function(err,user){
          if(err){
              res.status(500).send(err);
-         }else if (data == undefined){
+         }else if (user == undefined){
             res.status(400).send({"message":"username is wrong"});
-         }else if(data.password != req.body.password){
+         }else if(user.password != req.body.password){
               res.status(400).send({"message":"password is worng"});
          }else {
-             res.status(200).send({"message":"you just signin"});
+             var token = jwt.sign(user.toObject(), config.secret, {expiresIn: "24h"});
+              res.send({token: token, user: user.toObject(), success: true, message: "Here's your token!"})
+             //res.status(200).send({"message":"you just signin"});
          }
      })
 })
