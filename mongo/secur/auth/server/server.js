@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var config = require("./config");  
 mongoose.connect(config.database);
+var expressJwt = require("express-jwt");
 
 var apiRouter=require("./api.js");
 var authRouter = require('./auth.js');
@@ -20,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(authRouter);
 
-
+app.use(expressJwt({secret: config.secret}));
 app.use(apiRouter);
 
 
