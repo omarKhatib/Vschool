@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(authRouter);
 
 app.use(expressJwt({secret: config.secret}));
+
 app.use(apiRouter);
 
 
