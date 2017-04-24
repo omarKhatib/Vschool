@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat room</title>
+</head>
+<body ng-app="app" ng-controller="mainController" ng-init="loadConnection();getData()">
+  <p>Hello chat room
+   <input type='text'  placeholder='pick a name' ng-model='name'>
+    
+    <br>
+    <br>
+        <button ng-click="goToChats()" ng-disabled=''>pick</button>
+  
+  </p>
+  
+  <div ng-repeat="chat in oldChats track by $index">
+    <p>{{chat.user}}:{{chat.message}}</p>
+  </div>
+  
+  
+  <div ng-repeat="chat in messages track by $index">
+    <p>{{chat.user}}:{{chat.message}}</p>
+  </div>
+  <input ng-model="newMessage"><button ng-click="send()">Send</button>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.angularjs.org/1.6.2/angular.min.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/angular-socket.js"></script>
+</body>
+</html>
